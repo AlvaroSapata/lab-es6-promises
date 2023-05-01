@@ -120,4 +120,32 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+Promise.all ([
+  obtainInstruction(`brusselsSprouts`, 0),
+console.log(brusselsSprouts[0]),
+  obtainInstruction(`brusselsSprouts`, 1),
+
+  obtainInstruction(`brusselsSprouts`, 2),
+
+  obtainInstruction(`brusselsSprouts`, 3),
+
+  obtainInstruction(`brusselsSprouts`, 4),
+
+  obtainInstruction(`brusselsSprouts`, 5),
+
+  obtainInstruction(`brusselsSprouts`, 6),
+
+  obtainInstruction(`brusselsSprouts`, 7),
+  
+])
+.then ((step) => {
+  const brusselsSproutsList = document.querySelector("#brusselsSprouts")
+  step.forEach((step)=>{
+    brusselsSproutsList.innerHTML += `<li>${step}</li>`
+  })
+  brusselsSproutsList.innerHTML += `<li>Brussels Sprouts are ready!</li>`
+  document.querySelector("#brusselsSproutsImg").style.display = "block"
+})
+.catch((err) => {
+  console.log(err)
+})
